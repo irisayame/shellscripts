@@ -17,7 +17,7 @@ dstat --time --cpu --sys --load --proc --top-cpu --mem | tee dstat-memory-$MEMOR
 sleep 3
 
 echo "sysbench --test=memory --memory-total-size=$MEMORY_TOTAL_SIZE --memory-block-size=$MEMORY_BLOCK_SIZE run | tee sysbench-memory-$MEMORY_TOTAL_SIZE-$MEMORY_BLOCK_SIZE-`date +%Y%m%d%H%M`.log" >> run-sysbench.log
-sysbench --test=memory --memory-total-size=$MEMORY_TOTAL_SIZE --memory-block-size=$MEMORY_BLOCK_SIZE run 2>&1 > "sysbench-memory-$MEMORY_TOTAL_SIZE-$MEMORY_BLOCK_SIZE-`date "+%Y%m%d%H%M"`-memory.log" 
+sysbench --test=memory --memory-total-size=$MEMORY_TOTAL_SIZE --memory-block-size=$MEMORY_BLOCK_SIZE run 2>&1 > "sysbench-memory-$MEMORY_TOTAL_SIZE-$MEMORY_BLOCK_SIZE-`date "+%Y%m%d%H%M"`.log" 
 sleep 5
 
 pid=`ps aux | grep dstat | awk -F" " '{print $2}'`
